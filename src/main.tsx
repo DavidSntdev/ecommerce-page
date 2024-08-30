@@ -9,6 +9,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <NextUIProvider>
       <Header />
+      <hr className="lg:py-10 lg:border-[var(--colorLightGrayBlue)] hidden lg:block lg:w-[1350px] lg:mx-auto" />
       <Items />
     </NextUIProvider>
   </StrictMode>

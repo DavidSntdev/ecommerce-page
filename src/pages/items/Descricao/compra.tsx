@@ -21,7 +21,7 @@ function Compra() {
         color="primary"
         variant="shadow"
         className="bg-[var(--colorLaranja)] h-16 text-[var(--colorDarkBlue)] text-lg font-bold flex flex-row gap-5"
-        style={{ boxShadow: "0px 15px 35px -15px var(--colorLaranja)" }}
+        style={{ boxShadow: "0px 15px 40px -16px var(--colorLaranja)" }}
       >
         <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
           <path

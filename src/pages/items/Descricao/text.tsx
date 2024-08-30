@@ -2,10 +2,10 @@ function Text() {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-row gap-3">
-        <p className="font-bold text-sm text-[var(--colorDarkGrayBlue)]">
+        <p className="font-bold text-xs text-[var(--colorDarkGrayBlue)]">
           S N E A K E R
         </p>
-        <p className="font-bold text-sm text-[var(--colorDarkGrayBlue)]">
+        <p className="font-bold text-xs text-[var(--colorDarkGrayBlue)]">
           C O M P A N Y
         </p>
       </div>
