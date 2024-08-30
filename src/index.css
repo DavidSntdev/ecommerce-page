@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --colorLaranja: hsl(26, 100%, 55%);
+  --colorPaleLaranja: hsl(25, 100%, 94%);
+
+  --colorDarkBlue: hsl(220, 13%, 13%);
+  --colorDarkGrayBlue: hsl(219, 9%, 45%);
+  --colorGrayBlue: hsl(220, 14%, 75%);
+  --colorLightBlue: hsl(223, 64%, 98%);
+  --colorWhite: hsl(0, 0%, 100%);
+
+  --colorBlack: hsl(0, 0%, 0%);
+
+  /* - Weights: 400, 700 */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Kumbh Sans";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.cart-icon {
+  filter: var(--colorDarkBlue); 
+}
