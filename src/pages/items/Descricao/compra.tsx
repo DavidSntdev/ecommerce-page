@@ -5,8 +5,8 @@ import { useState } from "react";
 function Compra() {
   const [quantidade] = useState<number>(0);
   return (
-    <div className="flex flex-col w-full gap-8">
-      <div className="flex justify-between px-5 items-center">
+    <div className="flex flex-col lg:flex-row w-full gap-8 lg:gap-5">
+      <div className="flex justify-between px-5 lg:px-0 lg:w-4/12 items-center">
         <button className="h-full w-5 flex items-center justify-center">
           <img src={icons.minus} alt="" className="w-3 h-1" />
         </button>
@@ -20,8 +20,8 @@ function Compra() {
       <Button
         color="primary"
         variant="shadow"
-        className="bg-[var(--colorLaranja)] h-16 text-[var(--colorDarkBlue)] text-lg font-bold flex flex-row gap-5"
-        style={{ boxShadow: "0px 15px 40px -16px var(--colorLaranja)" }}
+        className="bg-[var(--colorLaranja)] h-14 text-[var(--colorDarkBlue)] text-lg font-bold flex flex-row gap-5 lg:w-8/12"
+        style={{ boxShadow: "0px 15px 40px -20px var(--colorLaranja)" }}
       >
         <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
           <path

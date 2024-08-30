@@ -9,7 +9,7 @@ function Text() {
           C O M P A N Y
         </p>
       </div>
-      <h1 className="font-bold text-3xl text-[var(--colorDarkBlue)]">
+      <h1 className="font-bold text-3xl text-[var(--colorDarkBlue)] lg:text-5xl lg:mb-9 lg:mt-2">
         Fall Limited Edition Sneakers
       </h1>
       <p className="text-[var(--colorDarkGrayBlue)]">
