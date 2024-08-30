@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { discount } from "../../../components/discont";
 
 function Price() {
-  const [price] = useState<number>(0);
-  const [promo] = useState<number>(0);
+  const [price] = useState<number>(250);
+  const [promo] = useState<number>(50);
   const [priceDiscont, setPriceDiscont] = useState<number>(0);
 
   useEffect(() => {
