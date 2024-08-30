@@ -2,7 +2,7 @@ import { icons, imgs } from "../../data/data";
 
 function Header() {
   return (
-    <div className="flex justify-between p-5 lg:py-10 lg:w-[1300px] lg:mx-auto">
+    <div className="flex justify-between p-5 lg:py-10 lg:w-full xl:w-[1300px] lg:mx-auto">
       <div className="flex gap-3 items-center justify-center">
         <button className="lg:hidden">
           <img src={icons.menu} alt="" />

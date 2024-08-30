@@ -3,7 +3,7 @@ import { icons, imgs } from "../../../data/data";
 
 function Produto() {
   return (
-    <div className="w-full flex items-center lg:items-start justify-center relative lg:w-[500px] lg:rounded-md">
+    <div className="w-full flex items-center lg:items-start justify-center relative lg:w-[450px] xl:w-[500px] lg:rounded-md">
       <Button
         isIconOnly
         color="default"
