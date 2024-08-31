@@ -1,19 +1,34 @@
 import { useEffect, useState } from "react";
 import { Button } from "@nextui-org/react";
-import CartContent from "./cartContent";
+import CartContent from "./CartContent";
 
 interface CartProps {
   isCartEmpty: boolean;
   cartQuantity: number;
+  setCartQuantity: (value: number) => void;
+  setCartEmpty: (value: boolean) => void;
+  setCartOpen: (value: boolean) => void;
 }
 
-function Cart({ isCartEmpty, cartQuantity }: CartProps) {
+function Cart({
+  isCartEmpty,
+  cartQuantity,
+  setCartQuantity,
+  setCartEmpty,
+  setCartOpen,
+}: CartProps) {
   const [priceCart, setPriceCart] = useState<number>(0);
   const price = 125;
 
   useEffect(() => {
     setPriceCart(price * cartQuantity);
   }, [cartQuantity]);
+
+  const finalizar = () => {
+    setCartOpen(false);
+    setCartEmpty(true);
+    setCartQuantity(0);
+  };
 
   return (
     <>
@@ -25,17 +40,20 @@ function Cart({ isCartEmpty, cartQuantity }: CartProps) {
               Your cart is empty.
             </p>
           ) : (
-            <div>
+            <div className="flex flex-col h-full justify-between py-5 w-full">
               <CartContent
                 price={price}
                 priceCart={priceCart}
                 cartQuantity={cartQuantity}
+                setCartQuantity={setCartQuantity}
+                setCartEmpty={setCartEmpty}
               />
               <Button
                 color="primary"
                 variant="shadow"
                 className="h-16 rounded-xl w-full bg-[var(--colorLaranja)] font-bold text-[var(--colorBlack)] text-lg"
                 style={{ boxShadow: "0px 15px 40px -20px var(--colorLaranja)" }}
+                onClick={finalizar}
               >
                 Checkout
               </Button>

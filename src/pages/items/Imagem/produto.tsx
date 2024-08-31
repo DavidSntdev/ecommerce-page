@@ -1,15 +1,25 @@
 import { Button, Image } from "@nextui-org/react";
 import { icons, imgs } from "../../../data/data";
 import { useEffect, useState } from "react";
-import Cart from "../../Cart/Cart";
+import Cart from "../../Cart";
 
 interface ProdutoProps {
   isCartEmpty: boolean;
   isCartOpen: boolean;
   cartQuantity: number;
+  setCartQuantity: (value: number) => void;
+  setCartEmpty: (value: boolean) => void;
+  setCartOpen: (value: boolean) => void;
 }
 
-function Produto({ isCartEmpty, isCartOpen, cartQuantity }: ProdutoProps) {
+function Produto({
+  isCartEmpty,
+  isCartOpen,
+  cartQuantity,
+  setCartQuantity,
+  setCartEmpty,
+  setCartOpen,
+}: ProdutoProps) {
   const [isMaxWidth, setMaxWidth] = useState<boolean>(false);
   const MAX_WIDTH = 1024;
 
@@ -36,7 +46,13 @@ function Produto({ isCartEmpty, isCartOpen, cartQuantity }: ProdutoProps) {
         <img src={icons.previous} alt="Previous" width={10} />
       </Button>
       {isMaxWidth && isCartOpen && (
-        <Cart isCartEmpty={isCartEmpty} cartQuantity={cartQuantity} />
+        <Cart
+          isCartEmpty={isCartEmpty}
+          cartQuantity={cartQuantity}
+          setCartQuantity={setCartQuantity}
+          setCartEmpty={setCartEmpty}
+          setCartOpen={setCartOpen}
+        />
       )}
       {isMaxWidth ? (
         <img

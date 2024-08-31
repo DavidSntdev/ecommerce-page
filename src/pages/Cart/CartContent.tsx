@@ -4,9 +4,21 @@ interface CartContentProps {
   price: number;
   priceCart: number;
   cartQuantity: number;
+  setCartQuantity: (value: number) => void;
+  setCartEmpty: (value: boolean) => void;
 }
 
-function CartContent({ price, cartQuantity, priceCart }: CartContentProps) {
+function CartContent({
+  price,
+  cartQuantity,
+  priceCart,
+  setCartQuantity,
+  setCartEmpty,
+}: CartContentProps) {
+  const deleteItemCart = () => {
+    if (cartQuantity === 1) setCartEmpty(true);
+    setCartQuantity(cartQuantity - 1);
+  };
   return (
     <div className="flex justify-between items-center w-full">
       <div className="flex gap-5">
@@ -23,8 +35,8 @@ function CartContent({ price, cartQuantity, priceCart }: CartContentProps) {
           </div>
         </div>
       </div>
-      <button>
-        <img src={icons.delete} alt="" className="h-6 w-5" />
+      <button onClick={deleteItemCart}>
+        <img src={icons.delete} alt="deletar" className="h-6 w-5" />
       </button>
     </div>
   );

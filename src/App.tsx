@@ -17,10 +17,11 @@ function App() {
       />
       <hr className="lg:py-10 lg:border-[var(--colorLightGrayBlue)] hidden lg:block lg:w-[1000px] xl:w-[1200px] lg:mx-auto" />
       <Items
-        isCartEmpty={isCartEmpty}
-        setCartEmpty={setCartEmpty}
         setCartQuantity={setcartQuantity}
+        setCartEmpty={setCartEmpty}
+        setCartOpen={setCartOpen}
         cartQuantity={cartQuantity}
+        isCartEmpty={isCartEmpty}
         isCartOpen={isCartOpen}
       />
     </>
