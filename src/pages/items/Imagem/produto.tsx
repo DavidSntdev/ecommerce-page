@@ -1,13 +1,15 @@
 import { Button, Image } from "@nextui-org/react";
 import { icons, imgs } from "../../../data/data";
 import { useEffect, useState } from "react";
+import Cart from "../../Cart/Cart";
 
 function Produto() {
-  const [isMaxWidth, setIsMaxWidth] = useState(false);
+  const [isMaxWidth, setMaxWidth] = useState<boolean>(false);
+  const [isCartOpen, setCartOpen] = useState<boolean>(false);
   const MAX_WIDTH = 1024;
   useEffect(() => {
     const handleResize = () => {
-      setIsMaxWidth(window.innerWidth <= MAX_WIDTH);
+      setMaxWidth(window.innerWidth <= MAX_WIDTH);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -27,6 +29,7 @@ function Produto() {
       >
         <img src={icons.previous} alt="Previous" width={10} />
       </Button>
+      {isMaxWidth && isCartOpen && <Cart />}
       {isMaxWidth ? (
         <img
           src={imgs.product1}
