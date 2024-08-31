@@ -1,11 +1,24 @@
+import { Button } from "@nextui-org/react";
 import { icons } from "../../data/data";
 
-function Text() {
+interface TextProps {
+  setMenuOpen: (value: boolean) => void;
+}
+
+function Text({ setMenuOpen }: TextProps) {
+
   return (
     <div className="flex gap-3 md:gap-16 items-center justify-center">
-      <button className="md:hidden">
+      <Button
+        isIconOnly
+        color="default"
+        variant="faded"
+        aria-label="Menu Button"
+        className="md:hidden border-0 bg-transparent"
+        onClick={() => setMenuOpen(true)}
+      >
         <img src={icons.menu} alt="" />
-      </button>
+      </Button>
       <h1 className="text-[var(--colorDarkBlue)] font-bold text-4xl mt-[-6px]">
         sneakers
       </h1>

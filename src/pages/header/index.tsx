@@ -7,10 +7,12 @@ interface HeaderProps {
   setCartQuantity: (value: number) => void;
   setCartEmpty: (value: boolean) => void;
   setCartOpen: (value: boolean) => void;
+  setMenuOpen: (value: boolean) => void;
   cartQuantity: number;
   isCartEmpty: boolean;
   isCartOpen: boolean;
   isMaxWidth: boolean;
+  isMenuOpen: boolean;
 }
 
 function Header({
@@ -21,11 +23,12 @@ function Header({
   setCartEmpty,
   setCartQuantity,
   isMaxWidth,
+  setMenuOpen,
 }: HeaderProps) {
   return (
     <>
       <div className="flex justify-between p-5 md:py-10 md:w-full xl:w-[1300px] md:mx-auto">
-        <Text />
+        <Text setMenuOpen={setMenuOpen} />
         <div className="flex gap-6 items-center">
           <div className="relative">
             <Button

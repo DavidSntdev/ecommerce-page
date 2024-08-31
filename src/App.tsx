@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import Header from "./pages/header";
 import Items from "./pages/items";
+import Menu from "./pages/Menu";
 
 function App() {
   const [isCartEmpty, setCartEmpty] = useState<boolean>(true);
   const [cartQuantity, setcartQuantity] = useState<number>(0);
   const [isCartOpen, setCartOpen] = useState<boolean>(false);
   const [isMaxWidth, setMaxWidth] = useState<boolean>(false);
+  const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
   const MAX_WIDTH = 1024;
+
   useEffect(() => {
     const handleResize = () => {
       setMaxWidth(window.innerWidth <= MAX_WIDTH);
@@ -29,7 +32,10 @@ function App() {
         setCartEmpty={setCartEmpty}
         setCartQuantity={setcartQuantity}
         isMaxWidth={isMaxWidth}
+        setMenuOpen={setMenuOpen}
+        isMenuOpen={isMenuOpen}
       />
+      {isMaxWidth && isMenuOpen && <Menu setMenuOpen={setMenuOpen} />}
       <hr className="lg:py-10 lg:border-[var(--colorLightGrayBlue)] hidden lg:block lg:w-[1000px] xl:w-[1200px] lg:mx-auto" />
       <Items
         setCartQuantity={setcartQuantity}
