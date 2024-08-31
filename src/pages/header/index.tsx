@@ -55,7 +55,11 @@ function Header({
               </div>
             )}
           </div>
-          <img className="h-6 w-6 lg:h-12 lg:w-12" src={imgs.avatar} alt="" />
+          <img
+            className="h-6 w-6 lg:h-12 lg:w-12 hover:border-2 hover:border-[var(--colorLaranja)] rounded-[50%]"
+            src={imgs.avatar}
+            alt="Avatar"
+          />
         </div>
       </div>
     </>

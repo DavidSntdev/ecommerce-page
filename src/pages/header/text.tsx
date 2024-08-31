@@ -9,14 +9,20 @@ function Text() {
       <h1 className="text-[var(--colorDarkBlue)] font-bold text-4xl mt-[-6px]">
         sneakers
       </h1>
-      <div className="hidden lg:flex gap-7">
-        <p className="cursor-pointer text-[var(--colorDarkGrayBlue)]">
+      <div className="hidden lg:flex gap-7 ">
+        <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] h-full hover:border-b-2 hover:border-[var(--colorLaranja)]">
           Collections
         </p>
-        <p className="cursor-pointer text-[var(--colorDarkGrayBlue)]">Men</p>
-        <p className="cursor-pointer text-[var(--colorDarkGrayBlue)]">Women</p>
-        <p className="cursor-pointer text-[var(--colorDarkGrayBlue)]">About</p>
-        <p className="cursor-pointer text-[var(--colorDarkGrayBlue)]">
+        <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] hover:border-b-2 hover:border-[var(--colorLaranja)]">
+          Men
+        </p>
+        <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] hover:border-b-2 hover:border-[var(--colorLaranja)]">
+          Women
+        </p>
+        <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] hover:border-b-2 hover:border-[var(--colorLaranja)]">
+          About
+        </p>
+        <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] hover:border-b-2 hover:border-[var(--colorLaranja)]">
           Contact
         </p>
       </div>

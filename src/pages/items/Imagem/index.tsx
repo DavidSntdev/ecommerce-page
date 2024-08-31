@@ -35,7 +35,7 @@ function Imagem({
         setActiveImage={setActiveImage}
         activeImage={activeImage}
       />
-      <Thumb setActiveImage={setActiveImage} />
+      <Thumb setActiveImage={setActiveImage} activeImage={activeImage} />
     </div>
   );
 }
