@@ -18,6 +18,7 @@ function Compra({ setCartEmpty, cartQuantity, setCartQuantity }: CompraProps) {
 
   const addToCart = () => {
     if (quantidade !== 0) {
+      setQuantidade(0);
       setCartQuantity(cartQuantity + quantidade);
       setCartEmpty(false);
     }

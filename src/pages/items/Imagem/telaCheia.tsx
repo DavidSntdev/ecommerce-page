@@ -2,6 +2,7 @@ import { Button } from "@nextui-org/react";
 import { icons } from "../../../data/data";
 import Thumb from "./thumb";
 import Imagem from "./img";
+import { motion } from "framer-motion";
 
 interface ImgTelaCheiaProps {
   setImageFull: (value: boolean) => void;
@@ -11,16 +12,33 @@ interface ImgTelaCheiaProps {
   isImageFull: boolean;
 }
 
-function ImgTelaCheia({
+const ImgTelaCheia = ({
   setImageFull,
   activeImage,
   setActiveImage,
   isMaxWidth,
   isImageFull,
-}: ImgTelaCheiaProps) {
+}: ImgTelaCheiaProps) => {
+  const handleBackgroundClick = () => {
+    setImageFull(false);
+  };
+
+  const handleContentClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
   return (
-    <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-20 items-center justify-center flex p-5 flex-col">
-      <div className="flex flex-col items-center w-auto justify-center gap-3">
+    <motion.div
+      className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-20 items-center justify-center flex p-5 flex-col"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: isImageFull ? 1 : 0, scale: isImageFull ? 1 : 0.9 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      onClick={handleBackgroundClick}
+    >
+      <div
+        className="flex flex-col items-center w-auto justify-center gap-3"
+        onClick={handleContentClick}
+      >
         <Button
           isIconOnly
           color="default"
@@ -39,8 +57,8 @@ function ImgTelaCheia({
         />
         <Thumb setActiveImage={setActiveImage} activeImage={activeImage} />
       </div>
-    </div>
+    </motion.div>
   );
-}
+};
 
 export default ImgTelaCheia;
