@@ -73,7 +73,7 @@ function Produto({
         <img
           src={img}
           alt="Product"
-          className="w-full h-[350px] object-cover sm:h-[400px] md:h-[600px] lg:rounded-2xl "
+          className="w-full h-[325px] object-cover xss:h-[380px] xs:h-[450px] sm:h-[500px] md:h-[600px] lg:h-[750px] lg:rounded-2xl"
         />
       ) : (
         <Image
