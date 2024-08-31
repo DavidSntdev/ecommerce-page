@@ -32,7 +32,7 @@ function Cart({
 
   return (
     <>
-      <div className="absolute w-[95%] h-[85%] mt-[-25px] p-5 px-7 rounded-xl z-20 flex  bg-white lg:hidden flex-col">
+      <div className="absolute lg:static lg:w-[400px] lg:h-[150px] lg:shadow-xl w-[95%] h-[85%] mt-[-25px] p-5 px-7 rounded-xl z-20 flex   bg-white flex-col">
         <h1 className="font-bold text-lg">Cart</h1>
         <div className="h-full w-full flex items-center justify-center">
           {isCartEmpty ? (
@@ -40,7 +40,7 @@ function Cart({
               Your cart is empty.
             </p>
           ) : (
-            <div className="flex flex-col h-full justify-between py-5 w-full">
+            <div className="flex flex-col h-full justify-between py-5 lg:gap-8 w-full">
               <CartContent
                 price={price}
                 priceCart={priceCart}

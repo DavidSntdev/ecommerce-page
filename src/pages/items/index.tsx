@@ -8,6 +8,7 @@ interface ItemsProps {
   isCartEmpty: boolean;
   cartQuantity: number;
   isCartOpen: boolean;
+  isMaxWidth: boolean;
 }
 
 function Items({
@@ -17,6 +18,7 @@ function Items({
   cartQuantity,
   isCartOpen,
   setCartOpen,
+  isMaxWidth,
 }: ItemsProps) {
   return (
     <div className="flex flex-col lg:flex-row lg:w-[900px] xl:w-[1150px] lg:mx-auto lg:justify-between">
@@ -27,6 +29,7 @@ function Items({
         cartQuantity={cartQuantity}
         isCartEmpty={isCartEmpty}
         isCartOpen={isCartOpen}
+        isMaxWidth={isMaxWidth}
       />
       <Descricao
         setCartEmpty={setCartEmpty}

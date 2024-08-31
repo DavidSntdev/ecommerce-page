@@ -8,6 +8,7 @@ interface ImagemProps {
   isCartEmpty: boolean;
   isCartOpen: boolean;
   cartQuantity: number;
+  isMaxWidth: boolean;
 }
 
 function Imagem({
@@ -17,6 +18,7 @@ function Imagem({
   setCartQuantity,
   setCartEmpty,
   setCartOpen,
+  isMaxWidth,
 }: ImagemProps) {
   return (
     <div className="flex flex-col gap-5">
@@ -27,6 +29,7 @@ function Imagem({
         setCartQuantity={setCartQuantity}
         setCartEmpty={setCartEmpty}
         setCartOpen={setCartOpen}
+        isMaxWidth={isMaxWidth}
       />
       <Thumb />
     </div>
