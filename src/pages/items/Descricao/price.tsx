@@ -11,7 +11,7 @@ function Price() {
   }, [price, promo]);
 
   return (
-    <div className="flex flex-row lg:flex-col justify-between py-4 lg:gap-3">
+    <div className="flex flex-row md:flex-col justify-between py-4 md:gap-3">
       <div className="flex flex-row gap-5">
         <p className="text-3xl font-bold text-[var(--colorDarkBlue)]">
           ${priceDiscont.toFixed(2)}

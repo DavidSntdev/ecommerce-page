@@ -21,7 +21,7 @@ function Items({
   isMaxWidth,
 }: ItemsProps) {
   return (
-    <div className="flex flex-col lg:flex-row lg:w-[900px] xl:w-[1150px] lg:mx-auto lg:justify-between">
+    <div className="flex flex-col lg:flex-row lg:w-[900px] xl:w-[1150px] lg:mx-auto lg:justify-between md:items-center">
       <Imagem
         setCartQuantity={setCartQuantity}
         setCartEmpty={setCartEmpty}

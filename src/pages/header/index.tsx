@@ -24,7 +24,7 @@ function Header({
 }: HeaderProps) {
   return (
     <>
-      <div className="flex justify-between p-5 lg:py-10 lg:w-full xl:w-[1300px] lg:mx-auto">
+      <div className="flex justify-between p-5 md:py-10 md:w-full xl:w-[1300px] md:mx-auto">
         <Text />
         <div className="flex gap-6 items-center">
           <div className="relative">
@@ -56,7 +56,7 @@ function Header({
             )}
           </div>
           <img
-            className="h-6 w-6 lg:h-12 lg:w-12 hover:border-2 hover:border-[var(--colorLaranja)] rounded-[50%]"
+            className="h-6 w-6 md:h-12 md:w-12 hover:border-2 hover:border-[var(--colorLaranja)] rounded-[50%]"
             src={imgs.avatar}
             alt="Avatar"
           />

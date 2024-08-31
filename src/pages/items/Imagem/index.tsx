@@ -23,7 +23,7 @@ function Imagem({
 }: ImagemProps) {
   const [activeImage, setActiveImage] = useState<number>(1);
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5 md:items-center lg:items-start">
       <Produto
         isCartEmpty={isCartEmpty}
         isCartOpen={isCartOpen}

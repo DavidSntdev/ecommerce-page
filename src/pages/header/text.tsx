@@ -2,14 +2,14 @@ import { icons } from "../../data/data";
 
 function Text() {
   return (
-    <div className="flex gap-3 lg:gap-16 items-center justify-center">
-      <button className="lg:hidden">
+    <div className="flex gap-3 md:gap-16 items-center justify-center">
+      <button className="md:hidden">
         <img src={icons.menu} alt="" />
       </button>
       <h1 className="text-[var(--colorDarkBlue)] font-bold text-4xl mt-[-6px]">
         sneakers
       </h1>
-      <div className="hidden lg:flex gap-7 ">
+      <div className="hidden md:flex gap-7 ">
         <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] h-full hover:border-b-2 hover:border-[var(--colorLaranja)]">
           Collections
         </p>

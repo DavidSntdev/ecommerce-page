@@ -49,13 +49,13 @@ function Produto({
   };
 
   return (
-    <div className="w-full flex items-center lg:items-start justify-center relative lg:w-[450px] xl:w-[500px] lg:rounded-md">
+    <div className="w-full flex items-center lg:items-start justify-center relative md:w-[450px] xl:w-[500px] md:rounded-md">
       <Button
         isIconOnly
         color="default"
         variant="faded"
         aria-label="Previous"
-        className="absolute left-0 transform ml-3 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-[50%] lg:hidden"
+        className="absolute left-0 transform ml-3 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-[50%] md:hidden"
         onClick={prevImg}
       >
         <img src={icons.previous} alt="Previous" width={10} />
@@ -73,13 +73,13 @@ function Produto({
         <img
           src={img}
           alt="Product"
-          className="w-full h-[325px] object-cover xss:h-[380px] xs:h-[450px] sm:h-[500px] md:h-[600px] lg:h-[750px] lg:rounded-2xl"
+          className="w-full h-[325px] object-cover xss:h-[380px] xs:h-[450px] sm:h-[500px] md:h-[400px] lg:h-[750px] md:rounded-2xl"
         />
       ) : (
         <Image
           isZoomed
           alt="Product"
-          className="w-full object-cover h-[500px] lg:rounded-2xl "
+          className="w-full object-cover h-[500px] md:rounded-2xl"
           src={img}
         />
       )}
@@ -88,7 +88,7 @@ function Produto({
         color="default"
         variant="faded"
         aria-label="Next"
-        className="mr-3 absolute right-0 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-[50%] lg:hidden"
+        className="mr-3 absolute right-0 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-[50%] md:hidden"
         onClick={nextImg}
       >
         <img src={icons.next} alt="Next" width={10} />

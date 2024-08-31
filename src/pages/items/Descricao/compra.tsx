@@ -24,8 +24,8 @@ function Compra({ setCartEmpty, cartQuantity, setCartQuantity }: CompraProps) {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row w-full gap-8 lg:gap-5">
-      <div className="flex justify-between px-5 lg:px-0 lg:w-4/12 items-center">
+    <div className="flex flex-col md:flex-row w-full gap-8 md:gap-5">
+      <div className="flex justify-between px-5 md:px-0 md:w-4/12 items-center">
         <Button
           isIconOnly
           color="warning"
@@ -53,7 +53,7 @@ function Compra({ setCartEmpty, cartQuantity, setCartQuantity }: CompraProps) {
       <Button
         color="primary"
         variant="shadow"
-        className="bg-[var(--colorLaranja)] h-14 text-[var(--colorDarkBlue)] text-lg font-bold flex flex-row gap-5 lg:w-8/12"
+        className="bg-[var(--colorLaranja)] h-14 text-[var(--colorDarkBlue)] text-lg font-bold flex flex-row gap-5 md:w-8/12"
         style={{ boxShadow: "0px 15px 40px -20px var(--colorLaranja)" }}
         onClick={addToCart}
       >

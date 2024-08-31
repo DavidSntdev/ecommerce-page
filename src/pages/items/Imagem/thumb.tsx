@@ -6,7 +6,7 @@ interface ThumbProps {
 
 function Thumb({ setActiveImage, activeImage }: ThumbProps) {
   return (
-    <div className="hidden lg:flex justify-between w-[450px] xl:w-[500px]">
+    <div className="hidden md:flex justify-between w-[450px] xl:w-[500px]">
       <button
         className="w-1/5 rounded-xl overflow-hidden relative"
         onClick={() => setActiveImage(1)}
