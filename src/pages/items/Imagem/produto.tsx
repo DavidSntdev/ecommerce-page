@@ -1,6 +1,7 @@
-import { Button, Image } from "@nextui-org/react";
-import { icons, imgs } from "../../../data/data";
+import { Button } from "@nextui-org/react";
+import { icons } from "../../../data/data";
 import Cart from "../../Cart";
+import Img from "./img";
 
 interface ProdutoProps {
   isCartEmpty: boolean;
@@ -8,10 +9,12 @@ interface ProdutoProps {
   cartQuantity: number;
   isMaxWidth: boolean;
   activeImage: number;
+  isImageFull: boolean;
   setCartQuantity: (value: number) => void;
   setCartEmpty: (value: boolean) => void;
   setCartOpen: (value: boolean) => void;
   setActiveImage: (value: number) => void;
+  setImageFull: (value: boolean) => void;
 }
 
 function Produto({
@@ -24,22 +27,9 @@ function Produto({
   isMaxWidth,
   activeImage,
   setActiveImage,
+  setImageFull,
+  isImageFull,
 }: ProdutoProps) {
-  const img = (() => {
-    switch (activeImage) {
-      case 1:
-        return imgs.product1;
-      case 2:
-        return imgs.product2;
-      case 3:
-        return imgs.product3;
-      case 4:
-        return imgs.product4;
-      default:
-        return imgs.product1;
-    }
-  })();
-
   const nextImg = () => {
     setActiveImage(activeImage < 4 ? activeImage + 1 : 1);
   };
@@ -69,20 +59,12 @@ function Produto({
           setCartOpen={setCartOpen}
         />
       )}
-      {isMaxWidth ? (
-        <img
-          src={img}
-          alt="Product"
-          className="w-full h-[325px] object-cover xss:h-[380px] xs:h-[450px] sm:h-[500px] md:h-[400px] lg:h-[750px] md:rounded-2xl"
-        />
-      ) : (
-        <Image
-          isZoomed
-          alt="Product"
-          className="w-full object-cover h-[500px] md:rounded-2xl"
-          src={img}
-        />
-      )}
+      <Img
+        setImageFull={setImageFull}
+        activeImage={activeImage}
+        isMaxWidth={isMaxWidth}
+        isImageFull={isImageFull}
+      />
       <Button
         isIconOnly
         color="default"

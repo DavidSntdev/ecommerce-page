@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Produto from "./produto";
 import Thumb from "./thumb";
 
@@ -6,10 +5,14 @@ interface ImagemProps {
   setCartQuantity: (value: number) => void;
   setCartEmpty: (value: boolean) => void;
   setCartOpen: (value: boolean) => void;
+  setImageFull: (value: boolean) => void;
+  setActiveImage: (value: number) => void;
+  activeImage: number;
   isCartEmpty: boolean;
   isCartOpen: boolean;
   cartQuantity: number;
   isMaxWidth: boolean;
+  isImageFull: boolean;
 }
 
 function Imagem({
@@ -20,8 +23,11 @@ function Imagem({
   setCartEmpty,
   setCartOpen,
   isMaxWidth,
+  setImageFull,
+  activeImage,
+  setActiveImage,
+  isImageFull,
 }: ImagemProps) {
-  const [activeImage, setActiveImage] = useState<number>(1);
   return (
     <div className="flex flex-col gap-5 md:items-center lg:items-start">
       <Produto
@@ -34,6 +40,8 @@ function Imagem({
         isMaxWidth={isMaxWidth}
         setActiveImage={setActiveImage}
         activeImage={activeImage}
+        setImageFull={setImageFull}
+        isImageFull={isImageFull}
       />
       <Thumb setActiveImage={setActiveImage} activeImage={activeImage} />
     </div>
