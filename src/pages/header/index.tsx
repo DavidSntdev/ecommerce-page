@@ -1,6 +1,12 @@
+import { Button } from "@nextui-org/react";
 import { icons, imgs } from "../../data/data";
 
-function Header() {
+interface HeaderProps {
+  isCartEmpty: boolean;
+  cartQuantity: number;
+}
+
+function Header({ isCartEmpty, cartQuantity }: HeaderProps) {
   return (
     <div className="flex justify-between p-5 lg:py-10 lg:w-full xl:w-[1300px] lg:mx-auto">
       <div className="flex gap-3 lg:gap-16 items-center justify-center">
@@ -27,9 +33,20 @@ function Header() {
         </div>
       </div>
       <div className="flex gap-6 items-center">
-        <button>
-          <img src={icons.cart} alt="" />
-        </button>
+        <Button
+          isIconOnly
+          color="default"
+          variant="faded"
+          aria-label="Cart Button"
+          className="border-0 flex flex-col"
+        >
+          {!isCartEmpty && (
+            <div className="absolute bg-[var(--colorLaranja)] text-xs px-2 font-bold text-white self-end mb-5 z-10 rounded-xl">
+              {cartQuantity}
+            </div>
+          )}
+          <img src={icons.cart} alt="Cart" />
+        </Button>
         <img className="h-6 w-6 lg:h-12 lg:w-12" src={imgs.avatar} alt="" />
       </div>
     </div>

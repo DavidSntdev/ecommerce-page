@@ -2,8 +2,11 @@ import { useState } from "react";
 import { icons, imgs } from "../../data/data";
 import { Button } from "@nextui-org/react";
 
-function Cart() {
-  const [isCartEmpty, setCartEmpty] = useState<boolean>(true);
+interface CartProps {
+  isCartEmpty: boolean;
+}
+
+function Cart({ isCartEmpty }: CartProps) {
   return (
     <>
       <div className="absolute w-[95%] h-[85%] mt-[-25px] p-5 px-7 rounded-xl z-20 flex  bg-white lg:hidden flex-col">

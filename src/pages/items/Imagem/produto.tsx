@@ -3,10 +3,15 @@ import { icons, imgs } from "../../../data/data";
 import { useEffect, useState } from "react";
 import Cart from "../../Cart/Cart";
 
-function Produto() {
+interface ProdutoProps {
+  isCartEmpty: boolean;
+}
+
+function Produto({ isCartEmpty }: ProdutoProps) {
   const [isMaxWidth, setMaxWidth] = useState<boolean>(false);
   const [isCartOpen, setCartOpen] = useState<boolean>(false);
   const MAX_WIDTH = 1024;
+  
   useEffect(() => {
     const handleResize = () => {
       setMaxWidth(window.innerWidth <= MAX_WIDTH);
@@ -29,7 +34,7 @@ function Produto() {
       >
         <img src={icons.previous} alt="Previous" width={10} />
       </Button>
-      {isMaxWidth && isCartOpen && <Cart />}
+      {isMaxWidth && isCartOpen && <Cart isCartEmpty={isCartEmpty} />}
       {isMaxWidth ? (
         <img
           src={imgs.product1}

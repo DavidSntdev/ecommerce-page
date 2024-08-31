@@ -1,10 +1,14 @@
 import Produto from "./produto";
 import Thumb from "./thumb";
 
-function Imagem() {
+interface ImagemProps {
+  isCartEmpty: boolean;
+}
+
+function Imagem({ isCartEmpty }: ImagemProps) {
   return (
     <div className="flex flex-col gap-5">
-      <Produto />
+      <Produto isCartEmpty={isCartEmpty} />
       <Thumb />
     </div>
   );

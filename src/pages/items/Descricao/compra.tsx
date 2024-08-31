@@ -2,26 +2,60 @@ import { Button } from "@nextui-org/react";
 import { icons } from "../../../data/data";
 import { useState } from "react";
 
-function Compra() {
-  const [quantidade] = useState<number>(0);
+interface CompraProps {
+  setCartEmpty: (value: boolean) => void;
+  setCartQuantity: (value: number) => void;
+  cartQuantity: number;
+}
+
+function Compra({ setCartEmpty, cartQuantity, setCartQuantity }: CompraProps) {
+  const [quantidade, setQuantidade] = useState<number>(0);
+
+  const diminuirQnt = () => {
+    if (quantidade > 0) setQuantidade(quantidade - 1);
+  };
+  const aumentarQnt = () => setQuantidade(quantidade + 1);
+
+  const addToCart = () => {
+    if (quantidade !== 0) {
+      setCartQuantity(cartQuantity + quantidade);
+      setCartEmpty(false);
+    }
+  };
+
   return (
     <div className="flex flex-col lg:flex-row w-full gap-8 lg:gap-5">
       <div className="flex justify-between px-5 lg:px-0 lg:w-4/12 items-center">
-        <button className="h-full w-5 flex items-center justify-center">
-          <img src={icons.minus} alt="" className="w-3 h-1" />
-        </button>
+        <Button
+          isIconOnly
+          color="warning"
+          variant="faded"
+          aria-label="Minus Button"
+          className="w-5 flex items-center justify-center h-5 border-0"
+          onClick={diminuirQnt}
+        >
+          <img src={icons.minus} alt="Minus Icon" className="w-3 h-1" />
+        </Button>
         <p className="text-lg text-[var(--colorDarkBlue)] font-bold">
           {quantidade}
         </p>
-        <button className="h-full w-5 flex items-center justify-center">
-          <img src={icons.plus} alt="" className="w-3 h-3" />
-        </button>
+        <Button
+          isIconOnly
+          color="warning"
+          variant="faded"
+          aria-label="Plus Button"
+          className="w-6 flex items-center justify-center h-6 border-0"
+          onClick={aumentarQnt}
+        >
+          <img src={icons.plus} alt="Plus Icon" className="w-3 h-3" />
+        </Button>
       </div>
       <Button
         color="primary"
         variant="shadow"
         className="bg-[var(--colorLaranja)] h-14 text-[var(--colorDarkBlue)] text-lg font-bold flex flex-row gap-5 lg:w-8/12"
         style={{ boxShadow: "0px 15px 40px -20px var(--colorLaranja)" }}
+        onClick={addToCart}
       >
         <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
           <path

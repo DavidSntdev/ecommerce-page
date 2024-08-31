@@ -1,16 +1,13 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import Header from "./pages/header";
-import "./index.css";
-import Items from "./pages/items";
 import { NextUIProvider } from "@nextui-org/react";
+import { createRoot } from "react-dom/client";
+import { StrictMode } from "react";
+import App from "./App";
+import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <NextUIProvider>
-      <Header />
-      <hr className="lg:py-10 lg:border-[var(--colorLightGrayBlue)] hidden lg:block lg:w-[1000px] xl:w-[1200px] lg:mx-auto" />
-      <Items />
+      <App />
     </NextUIProvider>
   </StrictMode>
 );
