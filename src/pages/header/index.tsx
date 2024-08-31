@@ -33,7 +33,7 @@ function Header({
               color="default"
               variant="faded"
               aria-label="Cart Button"
-              className="border-0 flex flex-col"
+              className="border-0 flex flex-col bg-transparent"
               onClick={() => setCartOpen(!isCartOpen)}
             >
               {!isCartEmpty && (

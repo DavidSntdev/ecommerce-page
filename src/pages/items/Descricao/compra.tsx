@@ -31,7 +31,7 @@ function Compra({ setCartEmpty, cartQuantity, setCartQuantity }: CompraProps) {
           color="warning"
           variant="faded"
           aria-label="Minus Button"
-          className="w-5 flex items-center justify-center h-5 border-0"
+          className="w-5 flex items-center justify-center h-5 border-0 bg-transparent"
           onClick={diminuirQnt}
         >
           <img src={icons.minus} alt="Minus Icon" className="w-3 h-1" />
@@ -44,7 +44,7 @@ function Compra({ setCartEmpty, cartQuantity, setCartQuantity }: CompraProps) {
           color="warning"
           variant="faded"
           aria-label="Plus Button"
-          className="w-6 flex items-center justify-center h-6 border-0"
+          className="w-6 flex items-center justify-center h-6 border-0 bg-transparent"
           onClick={aumentarQnt}
         >
           <img src={icons.plus} alt="Plus Icon" className="w-3 h-3" />

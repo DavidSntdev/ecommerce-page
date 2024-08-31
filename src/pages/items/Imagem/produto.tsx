@@ -73,13 +73,13 @@ function Produto({
         <img
           src={img}
           alt="Product"
-          className="w-full h-[300px] object-cover  sm:h-[400px] md:h-[500px] lg:rounded-2xl "
+          className="w-full h-[350px] object-cover sm:h-[400px] md:h-[600px] lg:rounded-2xl "
         />
       ) : (
         <Image
           isZoomed
           alt="Product"
-          className="w-full h-[300px] object-cover md:h-[500px] lg:rounded-2xl "
+          className="w-full object-cover h-[500px] lg:rounded-2xl "
           src={img}
         />
       )}
