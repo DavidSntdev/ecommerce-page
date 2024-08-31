@@ -1,6 +1,5 @@
 import { Button, Image } from "@nextui-org/react";
 import { icons, imgs } from "../../../data/data";
-import { useState } from "react";
 import Cart from "../../Cart";
 
 interface ProdutoProps {
@@ -8,9 +7,11 @@ interface ProdutoProps {
   isCartOpen: boolean;
   cartQuantity: number;
   isMaxWidth: boolean;
+  activeImage: number;
   setCartQuantity: (value: number) => void;
   setCartEmpty: (value: boolean) => void;
   setCartOpen: (value: boolean) => void;
+  setActiveImage: (value: number) => void;
 }
 
 function Produto({
@@ -21,9 +22,9 @@ function Produto({
   setCartEmpty,
   setCartOpen,
   isMaxWidth,
+  activeImage,
+  setActiveImage,
 }: ProdutoProps) {
-  const [activeImage, setActiveImage] = useState<number>(1);
-
   const img = (() => {
     switch (activeImage) {
       case 1:
@@ -40,11 +41,11 @@ function Produto({
   })();
 
   const nextImg = () => {
-    setActiveImage((prevImg) => (prevImg < 4 ? prevImg + 1 : 1));
+    setActiveImage(activeImage < 4 ? activeImage + 1 : 1);
   };
 
   const prevImg = () => {
-    setActiveImage((prevImg) => (prevImg > 1 ? prevImg - 1 : 4));
+    setActiveImage(activeImage > 1 ? activeImage - 1 : 4);
   };
 
   return (

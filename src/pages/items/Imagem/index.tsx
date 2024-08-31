@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Produto from "./produto";
 import Thumb from "./thumb";
 
@@ -20,6 +21,7 @@ function Imagem({
   setCartOpen,
   isMaxWidth,
 }: ImagemProps) {
+  const [activeImage, setActiveImage] = useState<number>(1);
   return (
     <div className="flex flex-col gap-5">
       <Produto
@@ -30,8 +32,10 @@ function Imagem({
         setCartEmpty={setCartEmpty}
         setCartOpen={setCartOpen}
         isMaxWidth={isMaxWidth}
+        setActiveImage={setActiveImage}
+        activeImage={activeImage}
       />
-      <Thumb />
+      <Thumb setActiveImage={setActiveImage} />
     </div>
   );
 }
