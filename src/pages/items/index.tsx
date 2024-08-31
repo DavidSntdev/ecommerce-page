@@ -6,6 +6,7 @@ interface ItemsProps {
   setCartQuantity: (value: number) => void;
   isCartEmpty: boolean;
   cartQuantity: number;
+  isCartOpen: boolean;
 }
 
 function Items({
@@ -13,10 +14,15 @@ function Items({
   setCartEmpty,
   setCartQuantity,
   cartQuantity,
+  isCartOpen,
 }: ItemsProps) {
   return (
     <div className="flex flex-col lg:flex-row lg:w-[900px] xl:w-[1150px] lg:mx-auto lg:justify-between">
-      <Imagem isCartEmpty={isCartEmpty} />
+      <Imagem
+        isCartEmpty={isCartEmpty}
+        isCartOpen={isCartOpen}
+        cartQuantity={cartQuantity}
+      />
       <Descricao
         setCartEmpty={setCartEmpty}
         setCartQuantity={setCartQuantity}

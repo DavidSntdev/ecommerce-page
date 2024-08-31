@@ -5,13 +5,14 @@ import Cart from "../../Cart/Cart";
 
 interface ProdutoProps {
   isCartEmpty: boolean;
+  isCartOpen: boolean;
+  cartQuantity: number;
 }
 
-function Produto({ isCartEmpty }: ProdutoProps) {
+function Produto({ isCartEmpty, isCartOpen, cartQuantity }: ProdutoProps) {
   const [isMaxWidth, setMaxWidth] = useState<boolean>(false);
-  const [isCartOpen, setCartOpen] = useState<boolean>(false);
   const MAX_WIDTH = 1024;
-  
+
   useEffect(() => {
     const handleResize = () => {
       setMaxWidth(window.innerWidth <= MAX_WIDTH);
@@ -34,7 +35,9 @@ function Produto({ isCartEmpty }: ProdutoProps) {
       >
         <img src={icons.previous} alt="Previous" width={10} />
       </Button>
-      {isMaxWidth && isCartOpen && <Cart isCartEmpty={isCartEmpty} />}
+      {isMaxWidth && isCartOpen && (
+        <Cart isCartEmpty={isCartEmpty} cartQuantity={cartQuantity} />
+      )}
       {isMaxWidth ? (
         <img
           src={imgs.product1}

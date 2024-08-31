@@ -3,12 +3,18 @@ import Thumb from "./thumb";
 
 interface ImagemProps {
   isCartEmpty: boolean;
+  isCartOpen: boolean;
+  cartQuantity: number;
 }
 
-function Imagem({ isCartEmpty }: ImagemProps) {
+function Imagem({ isCartEmpty, isCartOpen, cartQuantity }: ImagemProps) {
   return (
     <div className="flex flex-col gap-5">
-      <Produto isCartEmpty={isCartEmpty} />
+      <Produto
+        isCartEmpty={isCartEmpty}
+        isCartOpen={isCartOpen}
+        cartQuantity={cartQuantity}
+      />
       <Thumb />
     </div>
   );

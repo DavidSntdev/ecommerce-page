@@ -1,12 +1,20 @@
-import { useState } from "react";
-import { icons, imgs } from "../../data/data";
+import { useEffect, useState } from "react";
 import { Button } from "@nextui-org/react";
+import CartContent from "./cartContent";
 
 interface CartProps {
   isCartEmpty: boolean;
+  cartQuantity: number;
 }
 
-function Cart({ isCartEmpty }: CartProps) {
+function Cart({ isCartEmpty, cartQuantity }: CartProps) {
+  const [priceCart, setPriceCart] = useState<number>(0);
+  const price = 125;
+
+  useEffect(() => {
+    setPriceCart(price * cartQuantity);
+  }, [cartQuantity]);
+
   return (
     <>
       <div className="absolute w-[95%] h-[85%] mt-[-25px] p-5 px-7 rounded-xl z-20 flex  bg-white lg:hidden flex-col">
@@ -17,30 +25,12 @@ function Cart({ isCartEmpty }: CartProps) {
               Your cart is empty.
             </p>
           ) : (
-            <div className="flex flex-col w-full gap-5">
-              <div className="flex justify-between items-center w-full">
-                <div className="flex gap-5">
-                  <img
-                    src={imgs.thumb1}
-                    alt=""
-                    className="w-12 h-12 rounded-md"
-                  />
-                  <div>
-                    <p className="font-medium text-[var(--colorDarkGrayBlue)]">
-                      Fall Limited Edition Sneakers
-                    </p>
-                    <div className="flex gap-3">
-                      <p className="font-medium text-[var(--colorDarkGrayBlue)]">
-                        $125.00 x 3
-                      </p>
-                      <p className="font-bold text-black">$375.00</p>
-                    </div>
-                  </div>
-                </div>
-                <button>
-                  <img src={icons.delete} alt="" className="h-6 w-5" />
-                </button>
-              </div>
+            <div>
+              <CartContent
+                price={price}
+                priceCart={priceCart}
+                cartQuantity={cartQuantity}
+              />
               <Button
                 color="primary"
                 variant="shadow"

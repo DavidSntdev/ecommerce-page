@@ -2,11 +2,18 @@ import { Button } from "@nextui-org/react";
 import { icons, imgs } from "../../data/data";
 
 interface HeaderProps {
-  isCartEmpty: boolean;
+  setCartOpen: (value: boolean) => void;
   cartQuantity: number;
+  isCartEmpty: boolean;
+  isCartOpen: boolean;
 }
 
-function Header({ isCartEmpty, cartQuantity }: HeaderProps) {
+function Header({
+  isCartEmpty,
+  cartQuantity,
+  setCartOpen,
+  isCartOpen,
+}: HeaderProps) {
   return (
     <div className="flex justify-between p-5 lg:py-10 lg:w-full xl:w-[1300px] lg:mx-auto">
       <div className="flex gap-3 lg:gap-16 items-center justify-center">
@@ -39,6 +46,7 @@ function Header({ isCartEmpty, cartQuantity }: HeaderProps) {
           variant="faded"
           aria-label="Cart Button"
           className="border-0 flex flex-col"
+          onClick={() => setCartOpen(!isCartOpen)}
         >
           {!isCartEmpty && (
             <div className="absolute bg-[var(--colorLaranja)] text-xs px-2 font-bold text-white self-end mb-5 z-10 rounded-xl">
