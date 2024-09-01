@@ -1,19 +1,6 @@
+import { ItemsProps } from "../../data/interfaces";
 import Descricao from "./Descricao";
 import Imagem from "./Imagem";
-
-interface ItemsProps {
-  setCartQuantity: (value: number) => void;
-  setCartEmpty: (value: boolean) => void;
-  setCartOpen: (value: boolean) => void;
-  setImageFull: (value: boolean) => void;
-  setActiveImage: (value: number) => void;
-  isCartEmpty: boolean;
-  cartQuantity: number;
-  isCartOpen: boolean;
-  isMaxWidth: boolean;
-  activeImage: number;
-  isImageFull: boolean;
-}
 
 function Items({
   isCartEmpty,
@@ -27,6 +14,7 @@ function Items({
   activeImage,
   setActiveImage,
   isImageFull,
+  isBrasileiro,
 }: ItemsProps) {
   return (
     <div className="flex flex-col lg:flex-row lg:w-[900px] xl:w-[1150px] lg:mx-auto lg:justify-between md:items-center">
@@ -42,11 +30,13 @@ function Items({
         setActiveImage={setActiveImage}
         activeImage={activeImage}
         isImageFull={isImageFull}
+        isBrasileiro={isBrasileiro}
       />
       <Descricao
         setCartEmpty={setCartEmpty}
         setCartQuantity={setCartQuantity}
         cartQuantity={cartQuantity}
+        isBrasileiro={isBrasileiro}
       />
     </div>
   );

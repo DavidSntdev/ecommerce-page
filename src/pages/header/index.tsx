@@ -2,18 +2,7 @@ import { Button } from "@nextui-org/react";
 import { icons, imgs } from "../../data/data";
 import Text from "./text";
 import Cart from "../Cart";
-
-interface HeaderProps {
-  setCartQuantity: (value: number) => void;
-  setCartEmpty: (value: boolean) => void;
-  setCartOpen: (value: boolean) => void;
-  setMenuOpen: (value: boolean) => void;
-  cartQuantity: number;
-  isCartEmpty: boolean;
-  isCartOpen: boolean;
-  isMaxWidth: boolean;
-  isMenuOpen: boolean;
-}
+import { HeaderProps } from "../../data/interfaces";
 
 function Header({
   isCartEmpty,
@@ -24,11 +13,12 @@ function Header({
   setCartQuantity,
   isMaxWidth,
   setMenuOpen,
+  isBrasileiro,
 }: HeaderProps) {
   return (
     <>
       <div className="flex justify-between p-5 md:py-10 md:w-full xl:w-[1300px] md:mx-auto">
-        <Text setMenuOpen={setMenuOpen} />
+        <Text setMenuOpen={setMenuOpen} isBrasileiro={isBrasileiro} />
         <div className="flex gap-6 items-center">
           <div className="relative">
             <Button
@@ -54,6 +44,7 @@ function Header({
                   setCartOpen={setCartOpen}
                   setCartEmpty={setCartEmpty}
                   setCartQuantity={setCartQuantity}
+                  isBrasileiro={isBrasileiro}
                 />
               </div>
             )}

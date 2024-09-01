@@ -1,8 +1,5 @@
 import { imgs } from "../../../data/data";
-interface ThumbProps {
-  setActiveImage: (value: number) => void;
-  activeImage: number;
-}
+import { ThumbProps } from "../../../data/interfaces";
 
 function Thumb({ setActiveImage, activeImage }: ThumbProps) {
   return (

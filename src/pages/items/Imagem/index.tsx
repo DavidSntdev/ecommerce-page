@@ -1,19 +1,6 @@
+import { ImagemProps } from "../../../data/interfaces";
 import Produto from "./produto";
 import Thumb from "./thumb";
-
-interface ImagemProps {
-  setCartQuantity: (value: number) => void;
-  setCartEmpty: (value: boolean) => void;
-  setCartOpen: (value: boolean) => void;
-  setImageFull: (value: boolean) => void;
-  setActiveImage: (value: number) => void;
-  activeImage: number;
-  isCartEmpty: boolean;
-  isCartOpen: boolean;
-  cartQuantity: number;
-  isMaxWidth: boolean;
-  isImageFull: boolean;
-}
 
 function Imagem({
   isCartEmpty,
@@ -27,6 +14,7 @@ function Imagem({
   activeImage,
   setActiveImage,
   isImageFull,
+  isBrasileiro,
 }: ImagemProps) {
   return (
     <div className="flex flex-col gap-5 md:items-center lg:items-start">
@@ -42,6 +30,7 @@ function Imagem({
         activeImage={activeImage}
         setImageFull={setImageFull}
         isImageFull={isImageFull}
+        isBrasileiro={isBrasileiro}
       />
       <Thumb setActiveImage={setActiveImage} activeImage={activeImage} />
     </div>

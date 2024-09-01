@@ -1,12 +1,8 @@
 import { Button } from "@nextui-org/react";
 import { icons } from "../../data/data";
+import { TextPropsHeader } from "../../data/interfaces";
 
-interface TextProps {
-  setMenuOpen: (value: boolean) => void;
-}
-
-function Text({ setMenuOpen }: TextProps) {
-
+function Text({ setMenuOpen, isBrasileiro }: TextPropsHeader) {
   return (
     <div className="flex gap-3 md:gap-16 items-center justify-center">
       <Button
@@ -20,23 +16,23 @@ function Text({ setMenuOpen }: TextProps) {
         <img src={icons.menu} alt="" />
       </Button>
       <h1 className="text-[var(--colorDarkBlue)] font-bold text-4xl mt-[-6px]">
-        sneakers
+        {isBrasileiro ? "tênis" : "sneakers"}
       </h1>
       <div className="hidden md:flex gap-7 ">
         <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] h-full hover:border-b-2 hover:border-[var(--colorLaranja)]">
-          Collections
+          {isBrasileiro ? "Coleções" : "Collections"}
         </p>
         <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] hover:border-b-2 hover:border-[var(--colorLaranja)]">
-          Men
+          {isBrasileiro ? "Homem" : "Men"}
         </p>
         <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] hover:border-b-2 hover:border-[var(--colorLaranja)]">
-          Women
+          {isBrasileiro ? "Mulher" : "Women"}
         </p>
         <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] hover:border-b-2 hover:border-[var(--colorLaranja)]">
-          About
+          {isBrasileiro ? "Sobre" : "About"}
         </p>
         <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] hover:border-b-2 hover:border-[var(--colorLaranja)]">
-          Contact
+          {isBrasileiro ? "Contato" : "Contact"}
         </p>
       </div>
     </div>

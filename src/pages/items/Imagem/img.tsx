@@ -1,13 +1,7 @@
 import { Image } from "@nextui-org/react";
 import { imgs } from "../../../data/data";
 import { useEffect, useState } from "react";
-
-interface ImgProps {
-  setImageFull: (value: boolean) => void;
-  isMaxWidth: boolean;
-  activeImage: number;
-  isImageFull: boolean;
-}
+import { ImgProps } from "../../../data/interfaces";
 
 function Img({ activeImage, isMaxWidth, setImageFull, isImageFull }: ImgProps) {
   const [isMaxHeight1, setMaxHeight1] = useState<boolean>(false);

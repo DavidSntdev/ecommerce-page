@@ -1,21 +1,8 @@
 import { Button } from "@nextui-org/react";
 import { icons } from "../../../data/data";
+import { ProdutoProps } from "../../../data/interfaces";
 import Cart from "../../Cart";
 import Img from "./img";
-
-interface ProdutoProps {
-  isCartEmpty: boolean;
-  isCartOpen: boolean;
-  cartQuantity: number;
-  isMaxWidth: boolean;
-  activeImage: number;
-  isImageFull: boolean;
-  setCartQuantity: (value: number) => void;
-  setCartEmpty: (value: boolean) => void;
-  setCartOpen: (value: boolean) => void;
-  setActiveImage: (value: number) => void;
-  setImageFull: (value: boolean) => void;
-}
 
 function Produto({
   isCartEmpty,
@@ -29,6 +16,7 @@ function Produto({
   setActiveImage,
   setImageFull,
   isImageFull,
+  isBrasileiro,
 }: ProdutoProps) {
   const nextImg = () => {
     setActiveImage(activeImage < 4 ? activeImage + 1 : 1);
@@ -57,6 +45,7 @@ function Produto({
           setCartQuantity={setCartQuantity}
           setCartEmpty={setCartEmpty}
           setCartOpen={setCartOpen}
+          isBrasileiro={isBrasileiro}
         />
       )}
       <Img

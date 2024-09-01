@@ -2,17 +2,11 @@ import { useEffect, useState } from "react";
 import { Button } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import CartContent from "./CartContent";
-
-interface CartProps {
-  isCartEmpty: boolean;
-  cartQuantity: number;
-  setCartQuantity: (value: number) => void;
-  setCartEmpty: (value: boolean) => void;
-  setCartOpen: (value: boolean) => void;
-}
+import { CartProps } from "../../data/interfaces";
 
 function Cart({
   isCartEmpty,
+  isBrasileiro,
   cartQuantity,
   setCartQuantity,
   setCartEmpty,
@@ -38,11 +32,13 @@ function Cart({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <h1 className="font-bold text-lg">Cart</h1>
+      <h1 className="font-bold text-lg">
+        {isBrasileiro ? "Carrinho" : "Cart"}
+      </h1>
       <div className="h-full w-full flex items-center justify-center">
         {isCartEmpty ? (
           <p className="font-bold text-[var(--colorDarkGrayBlue)]">
-            Your cart is empty.
+            {isBrasileiro ? "O seu carrinho está vazio" : "Your cart is empty."}
           </p>
         ) : (
           <div className="flex flex-col h-full justify-between py-5 lg:gap-8 w-full">
@@ -52,6 +48,7 @@ function Cart({
               cartQuantity={cartQuantity}
               setCartQuantity={setCartQuantity}
               setCartEmpty={setCartEmpty}
+              isBrasileiro={isBrasileiro}
             />
             <Button
               color="primary"
@@ -60,7 +57,7 @@ function Cart({
               style={{ boxShadow: "0px 15px 40px -20px var(--colorLaranja)" }}
               onClick={finalizar}
             >
-              Checkout
+              {isBrasileiro ? "verificar" : "Checkout"}
             </Button>
           </div>
         )}

@@ -2,14 +2,10 @@ import { Button } from "@nextui-org/react";
 import { icons } from "../../data/data";
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { MenuProps } from "../../data/interfaces";
 
-interface MenuProps {
-  setMenuOpen: (value: boolean) => void;
-}
-
-const Menu = ({ setMenuOpen }: MenuProps) => {
+const Menu = ({ setMenuOpen, isBrasileiro }: MenuProps) => {
   const menuRef = useRef<HTMLDivElement | null>(null);
-
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -44,19 +40,19 @@ const Menu = ({ setMenuOpen }: MenuProps) => {
       </Button>
       <div className="flex flex-col gap-7 px-3 py-5">
         <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] h-full hover:border-b-2 hover:border-[var(--colorLaranja)]">
-          Collections
+          {isBrasileiro ? "Coleções" : "Collections"}
         </p>
         <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] hover:border-b-2 hover:border-[var(--colorLaranja)]">
-          Men
+          {isBrasileiro ? "Homem" : "Men"}
         </p>
         <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] hover:border-b-2 hover:border-[var(--colorLaranja)]">
-          Women
+          {isBrasileiro ? "Mulher" : "Women"}
         </p>
         <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] hover:border-b-2 hover:border-[var(--colorLaranja)]">
-          About
+          {isBrasileiro ? "Sobre" : "About"}
         </p>
         <p className="cursor-pointer text-[var(--colorDarkGrayBlue)] hover:border-b-2 hover:border-[var(--colorLaranja)]">
-          Contact
+          {isBrasileiro ? "Contato" : "Contact"}
         </p>
       </div>
     </motion.div>

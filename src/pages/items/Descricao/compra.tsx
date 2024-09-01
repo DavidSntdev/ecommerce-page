@@ -1,14 +1,14 @@
 import { Button } from "@nextui-org/react";
 import { icons } from "../../../data/data";
 import { useState } from "react";
+import { CompraProps } from "../../../data/interfaces";
 
-interface CompraProps {
-  setCartEmpty: (value: boolean) => void;
-  setCartQuantity: (value: number) => void;
-  cartQuantity: number;
-}
-
-function Compra({ setCartEmpty, cartQuantity, setCartQuantity }: CompraProps) {
+function Compra({
+  setCartEmpty,
+  cartQuantity,
+  setCartQuantity,
+  isBrasileiro,
+}: CompraProps) {
   const [quantidade, setQuantidade] = useState<number>(0);
 
   const diminuirQnt = () => {
@@ -65,7 +65,7 @@ function Compra({ setCartEmpty, cartQuantity, setCartQuantity }: CompraProps) {
             fill-rule="nonzero"
           />
         </svg>
-        Add to cart
+        {isBrasileiro ? "Adicionar ao carrinho" : "Add to cart"}
       </Button>
     </div>
   );

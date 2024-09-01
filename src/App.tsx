@@ -3,6 +3,8 @@ import Header from "./pages/header";
 import Items from "./pages/items";
 import Menu from "./pages/Menu";
 import ImgTelaCheia from "./pages/items/Imagem/telaCheia";
+import { MAX_WIDTH, MAX_WIDTH_IMG } from "./data/constants";
+import { fetchCountry } from "./services/apiService";
 
 function App() {
   const [isCartEmpty, setCartEmpty] = useState<boolean>(true);
@@ -13,8 +15,7 @@ function App() {
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
   const [activeImage, setActiveImage] = useState<number>(1);
   const [isImageFull, setImageFull] = useState<boolean>(false);
-  const MAX_WIDTH = 1024;
-  const MAX_WIDTH_IMG = 768;
+  const [isBrasileiro, setIsBrasileiro] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,6 +29,19 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const getCountry = async () => {
+      try {
+        const country = await fetchCountry();
+        setIsBrasileiro(country === "Brazil");
+      } catch (error) {
+        console.error("Error fetching country data", error);
+      }
+    };
+
+    getCountry();
+  }, []);
+
   return (
     <>
       <Header
@@ -39,9 +53,11 @@ function App() {
         setCartQuantity={setcartQuantity}
         isMaxWidth={isMaxWidth}
         setMenuOpen={setMenuOpen}
-        isMenuOpen={isMenuOpen}
+        isBrasileiro={isBrasileiro}
       />
-      {isMaxWidth && isMenuOpen && <Menu setMenuOpen={setMenuOpen} />}
+      {isMaxWidth && isMenuOpen && (
+        <Menu setMenuOpen={setMenuOpen} isBrasileiro={isBrasileiro} />
+      )}
       {!isMaxWidthImg && isImageFull && (
         <ImgTelaCheia
           setImageFull={setImageFull}
@@ -64,6 +80,7 @@ function App() {
         setActiveImage={setActiveImage}
         activeImage={activeImage}
         isImageFull={isImageFull}
+        isBrasileiro={isBrasileiro}
       />
     </>
   );

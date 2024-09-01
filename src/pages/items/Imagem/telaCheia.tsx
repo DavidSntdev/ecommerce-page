@@ -1,16 +1,9 @@
 import { Button } from "@nextui-org/react";
 import { icons } from "../../../data/data";
+import { ImgTelaCheiaProps } from "../../../data/interfaces";
 import Thumb from "./thumb";
 import Imagem from "./img";
 import { motion } from "framer-motion";
-
-interface ImgTelaCheiaProps {
-  setImageFull: (value: boolean) => void;
-  setActiveImage: (value: number) => void;
-  activeImage: number;
-  isMaxWidth: boolean;
-  isImageFull: boolean;
-}
 
 const ImgTelaCheia = ({
   setImageFull,

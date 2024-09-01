@@ -1,12 +1,5 @@
 import { icons, imgs } from "../../data/data";
-
-interface CartContentProps {
-  price: number;
-  priceCart: number;
-  cartQuantity: number;
-  setCartQuantity: (value: number) => void;
-  setCartEmpty: (value: boolean) => void;
-}
+import { CartContentProps } from "../../data/interfaces";
 
 function CartContent({
   price,
@@ -14,6 +7,7 @@ function CartContent({
   priceCart,
   setCartQuantity,
   setCartEmpty,
+  isBrasileiro,
 }: CartContentProps) {
   const deleteItemCart = () => {
     if (cartQuantity === 1) setCartEmpty(true);
@@ -25,18 +19,24 @@ function CartContent({
         <img src={imgs.thumb1} alt="" className="w-12 h-12 rounded-md" />
         <div>
           <p className="font-medium text-[var(--colorDarkGrayBlue)]">
-            Fall Limited Edition Sneakers
+            {isBrasileiro
+              ? "Ténis de edição limitada de outono"
+              : "Fall Limited Edition Sneakers"}
           </p>
           <div className="flex gap-3">
             <p className="font-medium text-[var(--colorDarkGrayBlue)]">
-              ${price.toFixed(2)} x {cartQuantity}
+              {isBrasileiro ? "R$" : "$"}
+              {price.toFixed(2)} x {cartQuantity}
             </p>
-            <p className="font-bold text-black">${priceCart.toFixed(2)}</p>
+            <p className="font-bold text-black">
+              {isBrasileiro ? "R$" : "$"}
+              {priceCart.toFixed(2)}
+            </p>
           </div>
         </div>
       </div>
       <button onClick={deleteItemCart}>
-        <img src={icons.delete} alt="deletar" className="h-6 w-5" />
+        <img src={icons.delete} alt="delete" className="h-6 w-5" />
       </button>
     </div>
   );
